@@ -17,7 +17,7 @@ function writePassword() {
    var lowerCase = confirm("Do you want to use lowercase letters? (Press cancel if you do not want these characters in your password.)");
    var numericalChar = confirm("Do you want to use numbers? (Press cancel if you do not want these characters in your password.)");
    var specialChar = confirm("Do you want to use special characters? (Press cancel if you do not want these characters in your password.)");
-// if we have no way to generate force restart
+// if we have no way to generate a password force restart
    if(!upperCase && !lowerCase && !numericalChar && !specialChar){
   alert("No available criteria to generate a password")
   return;
@@ -30,7 +30,7 @@ function writePassword() {
         93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
          107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119,
           120, 121, 122, 123, 124, 125, 126]
-// filtering out ascii codes by checking value and filtering from array
+// filtering out ascii codes by checking code value and filtering from array
 if(!upperCase){
   var characterAsc = characterAsc.filter(function(value) {
       return value < 65 || value > 90 ;
@@ -52,8 +52,9 @@ if(!specialChar){
     && value < 91 || value > 96 && value < 123 || value > 126 ;
 })
 }
-//generate random item from new array  after all filters 
+//create string to be added to as the loop adds new characters to it 
 var password = '';
+//generate random item from new array  after all filters 
 for(var i, i=0; i < passwordLength; i++){
   var randChar = characterAsc[(Math.floor(Math.random() * (characterAsc.length)))];
   //items are ascii codes being converted and added to the password string
@@ -64,18 +65,3 @@ passwordText.value = password;
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
-
-
-
-//let x = Math.floor(Math.random() * 93) + 33;
-
-//console.log(String.fromCharCode(x));
-// &#x; will be what we need to convert random number to ascii character
- 
-
-
-// 93 33 for full range 48 57(numbers) + 65 90(uppercase) + 97 122 (lowercase)

@@ -10,6 +10,7 @@ This is a website that generates passwords based off user prompts using all asci
 N/A
 
 ## Usage
+> Link to the website to begin usage: https://connorruth.github.io/Password-Generator/
 
 > Start by pressing the red "Generate" button.
 
